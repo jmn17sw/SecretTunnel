@@ -1,7 +1,12 @@
 /** Users can enter their name to receive a token from the API. */
 export default function Entrance() {
   // TODO: call signup when form is submitted
-
+const signUp = (event) => {
+  event.preventDefault();
+  const name = event.target.name.value;
+  return `Signup here with your ${name}`
+  
+};
   return (
     <>
       <h1>Cave Entrance</h1>
@@ -16,11 +21,11 @@ export default function Entrance() {
         rumbling voice, it asks, "Who approaches? Speak your name."
       </p>
       <form>
-        <label>
+        <label onSubmit={signUp}>
           Name
           <input name="name" />
         </label>
-        <button>Respond</button>
+        <button type="submit">Respond</button>
       </form>
     </>
   );
